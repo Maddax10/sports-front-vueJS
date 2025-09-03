@@ -45,7 +45,7 @@ const login = async () => {
 const connexion = async () => {
     // console.log(`http://localhost:3000/users_EP/login/${usernameInput.value}/${passwordInput.value}`)
     const resp = await fetch(
-        `http://localhost:3000/users_EP/login/connect/${usernameInput.value}/${passwordInput.value}`,
+        `http://localhost:3000/users_EP/login/${usernameInput.value}/${passwordInput.value}`,
         {
             method: 'GET',
             headers: {
