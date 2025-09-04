@@ -1,22 +1,43 @@
 <template>
     <main>
-        <div class="cardRegister">
+        <form class="card_register" v-if="!usersStore.getUserConnexionInfo">
             <label for="">username</label>
-            <input type="text" />
+            <input type="text" v-model="user.username_user" />
             <label for="">password</label>
-            <input type="password" />
+            <input type="password" v-model="user.password_user" />
             <label for="">mail</label>
-            <input type="mail" />
+            <input type="mail" v-model="user.mail_user" />
             <label for="">firstname</label>
-            <input type="text" />
+            <input type="text" v-model="user.firstname_user" />
             <label for="">name</label>
-            <input type="text" />
+            <input type="text" v-model="user.name_user" />
             <label for="">img</label>
-            <input type="text" value="null" disabled />
-            <button>S'enregistrer</button>
-        </div>
+            <input type="text" value="null" disabled v-model="user.url_img_user" />
+            <button @click.prevent="register">S'enregistrer</button>
+        </form>
     </main>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import { useUsersStore } from '@/stores/users';
+
+const usersStore = useUsersStore();
+
+const user = ref({
+    username_user: Math.floor(Math.random() * 100000),
+    password_user: 'test',
+    mail_user: Math.floor(Math.random() * 100000) + '@gmail.com',
+    firstname_user: 'test',
+    name_user: 'test',
+    url_img_user: null
+})
+
+const register = () => {
+    usersStore.register(user.value)
+}
+
+</script>
 
 <style lang="scss" scoped>
 main {
@@ -28,7 +49,7 @@ main {
     font-family: 'Arial', sans-serif;
 }
 
-.cardRegister {
+.card_register {
     background: white;
     padding: 2rem;
     border-radius: 15px;
@@ -60,9 +81,9 @@ main {
         }
 
         &:disabled {
-            background-color: #f5f5f5;
+            background-color: #a3a3a3;
             color: #999;
-            border-color: #d1d5db;
+            border-color: #000000;
             cursor: not-allowed;
             opacity: 0.7;
         }
