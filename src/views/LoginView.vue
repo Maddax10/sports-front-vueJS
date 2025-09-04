@@ -32,6 +32,7 @@ let userData = ref(null)
  * une fois l'update fait, je renvoit l'objet qui à été modifié
  */
 const login = async () => {
+    console.log("click on login");
     //1) Vérifier que l'username et le mdp existe bien, réponse d'un tableau vide s'il n'existe pas
     userData.value = await connexion()
     // console.log(data);
