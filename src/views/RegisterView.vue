@@ -16,6 +16,7 @@
             <button @click.prevent="register">S'enregistrer</button>
         </form>
     </main>
+
 </template>
 
 <script setup>
@@ -43,10 +44,8 @@ const register = () => {
 main {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: 'Arial', sans-serif;
+    margin-block-start: 5rem;
+
 }
 
 .card_register {
@@ -54,8 +53,8 @@ main {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 450px;
+    width: 90%;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 1rem;

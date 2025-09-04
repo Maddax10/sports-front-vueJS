@@ -17,10 +17,8 @@
                 <button @click.prevent="login">login</button>
             </form>
         </div>
-        <div class="connected" v-else>
-            <label>Vous êtes connectés !</label>
-        </div>
     </main>
+
 </template>
 
 <script setup>
@@ -43,9 +41,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: 'Arial', sans-serif;
+    margin-block-start: 5rem;
 }
 
 .login_card {
@@ -102,40 +98,6 @@ main {
             &:active {
                 transform: translateY(0);
             }
-        }
-    }
-}
-
-.connected {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
-
-    label {
-        display: block;
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #27ae60;
-        margin-bottom: 1.5rem;
-    }
-
-    button {
-        background: #e74c3c;
-        color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-
-        &:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
         }
     }
 }

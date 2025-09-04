@@ -2,10 +2,14 @@
 
 body {
     margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /*Pour éviter que quand la page soit trop petite en height et que le background color se duplique*/
+    height: 100%;
+    min-height: 100dvh;
 }
 
 * {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 button {
