@@ -6,6 +6,7 @@ body {
     /*Pour éviter que quand la page soit trop petite en height et que le background color se duplique*/
     height: 100%;
     min-height: 100dvh;
+    color: white;
 }
 
 * {
