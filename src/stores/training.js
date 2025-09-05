@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-const urlAPI = 'http://localhost:3000/users_EP'
+const urlAPI = 'https://michonmaximilien.dev:3000/users_EP'
 const routesName = ['seasons', 'weeks', 'sessions', 'exercises', 'legends']
 
 export const useTrainingStore = defineStore('trainingStore', {
