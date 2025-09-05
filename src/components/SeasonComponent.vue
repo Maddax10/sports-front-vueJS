@@ -1,6 +1,7 @@
 <template>
     <div class="seasonCard">
-        <h1>SeasonCard</h1>
+        <h1 class="title">SeasonCard</h1>
+        <p class=""></p>
         <div class="weeks">
             <slot />
         </div>
@@ -16,9 +17,12 @@
     background: linear-gradient(135deg, #28325e 0%, #291a39 100%);
     width: 80dvw;
     border-radius: 1rem;
-    padding-block: .5rem;
-    overflow: hidden;
     padding: 0;
+    overflow: hidden;
+}
+
+.title {
+    padding-inline: 1rem;
 }
 
 .weeks {

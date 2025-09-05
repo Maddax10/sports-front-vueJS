@@ -1,20 +1,60 @@
 import { defineStore } from 'pinia'
 
 const urlAPI = 'http://localhost:3000/users_EP'
+const indexTraining = ['seasons', 'weeks', 'sessions', 'exercises']
 
 export const useTrainingStore = defineStore('trainingStore', {
   state: () => ({
-    exercises: null,
+    //training[seasons,weeks,sessions,exercises]
+    training: [null, null, null, null],
   }),
-  getters: {},
+  getters: {
+    getAllSeasons: async (state) => {
+      const index = 0
+      if (state.training[index] === null) {
+        await state.fetchAllThings(indexTraining[index], index)
+        // console.log(state.training[index])
+        return state.training[index]
+      }
+      return state.training[index]
+    },
+    getAllWeeks: async (state) => {
+      const index = 1
+      if (state.training[index] === null) {
+        await state.fetchAllThings(indexTraining[index], index)
+        // console.log(state.training[index])
+        return state.training[index]
+      }
+      return state.training[index]
+    },
+    getAllSessions: async (state) => {
+      const index = 2
+      if (state.training[index] === null) {
+        await state.fetchAllThings(indexTraining[index], index)
+        // console.log(state.training[index])
+        return state.training[index]
+      }
+      return state.training[index]
+    },
+    getAllExercises: async (state) => {
+      const index = 3
+      if (state.training[index] === null) {
+        await state.fetchAllThings(indexTraining[index], index)
+        // console.log(state.training[index])
+        return state.training[index]
+      }
+      return state.training[index]
+    },
+  },
   actions: {
-    async fetchAllExercises() {
-      const resp = await fetch(`${urlAPI}/exercises`)
-      //Si j'ai pas d'erreur, ça continue le login, sinon ça affiche l'erreur
+    //Fonction "universelle" pour récupérer les infos
+    async fetchAllThings(route, index) {
+      // console.log(`${urlAPI}/${route}`)
+      const resp = await fetch(`${urlAPI}/${route}`)
+
       if (!(await showErrorFetch(resp))) {
-        const data = await resp.json()
-        this.exercises = await data
-        console.log('userStore this.exercises', this.exercises[0])
+        this.training[index] = await resp.json()
+        // console.log('this.training[' + index + '] : ', this.training[index])
       }
     },
   },

@@ -6,15 +6,26 @@
         <slot />
     </div>
 </template>
-<script setup></script>
+<script setup>
+    import { defineProps } from 'vue';
+
+    const props = defineProps({
+        exercise: {
+            required: true,
+            type: Object
+        }
+    })
+
+    console.log(props.exercise)
+</script>
 
 <style lang="scss" scoped>
-.exerciseCard {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 1rem;
-}
+    .exerciseCard {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
 </style>
