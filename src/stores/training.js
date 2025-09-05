@@ -1,18 +1,18 @@
 import { defineStore } from 'pinia'
 
 const urlAPI = 'http://localhost:3000/users_EP'
-const indexTraining = ['seasons', 'weeks', 'sessions', 'exercises']
+const routesName = ['seasons', 'weeks', 'sessions', 'exercises', 'legends']
 
 export const useTrainingStore = defineStore('trainingStore', {
   state: () => ({
     //training[seasons,weeks,sessions,exercises]
-    training: [null, null, null, null],
+    training: [null, null, null, null, null],
   }),
   getters: {
     getAllSeasons: async (state) => {
       const index = 0
       if (state.training[index] === null) {
-        await state.fetchAllThings(indexTraining[index], index)
+        await state.fetchAllThings(routesName[index], index)
         // console.log(state.training[index])
         return state.training[index]
       }
@@ -21,7 +21,7 @@ export const useTrainingStore = defineStore('trainingStore', {
     getAllWeeks: async (state) => {
       const index = 1
       if (state.training[index] === null) {
-        await state.fetchAllThings(indexTraining[index], index)
+        await state.fetchAllThings(routesName[index], index)
         // console.log(state.training[index])
         return state.training[index]
       }
@@ -30,7 +30,7 @@ export const useTrainingStore = defineStore('trainingStore', {
     getAllSessions: async (state) => {
       const index = 2
       if (state.training[index] === null) {
-        await state.fetchAllThings(indexTraining[index], index)
+        await state.fetchAllThings(routesName[index], index)
         // console.log(state.training[index])
         return state.training[index]
       }
@@ -39,7 +39,16 @@ export const useTrainingStore = defineStore('trainingStore', {
     getAllExercises: async (state) => {
       const index = 3
       if (state.training[index] === null) {
-        await state.fetchAllThings(indexTraining[index], index)
+        await state.fetchAllThings(routesName[index], index)
+        // console.log(state.training[index])
+        return state.training[index]
+      }
+      return state.training[index]
+    },
+    getAllLegends: async (state) => {
+      const index = 4
+      if (state.training[index] === null) {
+        await state.fetchAllThings(routesName[index], index)
         // console.log(state.training[index])
         return state.training[index]
       }

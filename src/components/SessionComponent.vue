@@ -15,24 +15,28 @@
 </template>
 <script setup>
 
-const startSession = () => {
+    import { defineProps } from 'vue';
 
-}
+    const startSession = () => {
+
+    }
 
 </script>
 
 <style lang="scss" scoped>
-.sessionCard {
-    padding: 1rem;
-    padding-left: 2rem;
-    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.251);
-    border-radius: 1rem;
-}
+    .sessionCard {
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(26, 42, 58, 0.08);
+        border-radius: 1rem;
+        background: #f5f7fa;
+        border: 2px solid #a3c800;
+        color: #1a2a3a;
+    }
 
-.exercises {
-    display: grid;
-    gap: 1rem;
-    justify-items: center;
-    margin: 1rem;
-}
+    .exercises {
+        display: grid;
+        gap: 1rem;
+        justify-items: center;
+        margin: 1rem;
+    }
 </style>

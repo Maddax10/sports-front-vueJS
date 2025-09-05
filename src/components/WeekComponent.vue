@@ -16,9 +16,10 @@
 
 <script setup></script>
 <style lang="scss" scoped>
-.weekCard {
-    background: linear-gradient(135deg, #323e75 0%, #3f2957 100%);
-
-    padding: 1rem;
-}
+    .weekCard {
+        background: #f5f7fa;
+        border: 2px solid #a3c800;
+        box-shadow: 0 2px 8px rgba(26, 42, 58, 0.08);
+        padding: 1rem;
+    }
 </style>

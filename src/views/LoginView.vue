@@ -22,83 +22,93 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useUsersStore } from '@/stores/users'
+    import { ref } from 'vue'
+    import { useUsersStore } from '@/stores/users'
+    import { useRouter } from 'vue-router'
 
-const usersStore = useUsersStore();
+    const usersStore = useUsersStore();
+    const router = useRouter();
 
-const usernameInput = ref('bob')
-const passwordInput = ref('passbob')
+    const usernameInput = ref('bob')
+    const passwordInput = ref('passbob')
 
-const login = async () => {
-    //1) Vérifier que l'username et le mdp existe bien
-    await usersStore.login(usernameInput.value, passwordInput.value)
-}
+    const login = async () => {
+        //1) Vérifier que l'username et le mdp existe bien
+        await usersStore.login(usernameInput.value, passwordInput.value)
+        if (usersStore.getUserConnexionInfo) {
+            router.push('/dashboard')
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-block-start: 5rem;
-}
-
-.login_card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-
-    form {
+    main {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-block-start: 5rem;
+    }
 
-        label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.25rem;
-            text-transform: capitalize;
-        }
+    .login_card {
+        background: #f5f7fa;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 2px 8px rgba(26, 42, 58, 0.08);
+        border: 2px solid #a3c800;
+        width: 100%;
+        max-width: 400px;
 
-        input {
-            padding: 0.75rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
 
-            &:focus {
-                outline: none;
-                border-color: #667eea;
-                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            }
-        }
-
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            label {
+                font-weight: 600;
+                color: #1a2a3a;
+                margin-bottom: 0.25rem;
+                text-transform: capitalize;
             }
 
-            &:active {
-                transform: translateY(0);
+            input {
+                padding: 0.75rem;
+                border: 2px solid #a3c800;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.3s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: #1a2a3a;
+                    box-shadow: 0 0 0 3px rgba(26, 42, 58, 0.08);
+                }
+            }
+
+            button {
+                background: #a3c800;
+                color: #1a2a3a;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+                transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+
+                &:hover {
+                    background: #1a2a3a;
+                    color: #a3c800;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(26, 42, 58, 0.18);
+                }
+
+                &:active {
+                    background: #a3c800;
+                    color: #fff;
+                    transform: translateY(0);
+                }
             }
         }
     }
-}
 </style>

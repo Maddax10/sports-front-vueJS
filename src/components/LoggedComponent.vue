@@ -5,22 +5,23 @@
 </template>
 
 <style lang="scss" scoped>
-.logged_card {
-    justify-self: center;
-    margin: 5rem;
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.311);
-
-    label {
-        font-size: 1.25rem;
-        font-weight: 900;
-        color: #01aa47;
-        display: flex;
+    .logged_card {
         justify-self: center;
+        margin: 5rem;
+        background: #f5f7fa;
+        padding: 2rem;
+        border-radius: 15px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 2px 8px rgba(26, 42, 58, 0.08);
+        border: 2px solid #a3c800;
+
+        label {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #1a2a3a;
+            display: flex;
+            justify-self: center;
+        }
     }
-}
 </style>
